@@ -8,8 +8,10 @@
 <body>
     <div class="container">
         <input type="text" id="input">
-        <button id="btn">button</button>
-
+        <button id="capitalize">CapitalFirstWord</button>
+        <button id="btn">Reverse Sentence</button>
+        <button id="rvebtn">ReverseAllWordSentence</button>
+        <button id="cheackJavascript">Cheack javacript</button>
         <div id="output">
 
         </div>
@@ -20,9 +22,11 @@
     let btn = document.getElementById("btn");
     let output = document.getElementById("output");
 
+
     btn.addEventListener("click", ()=>{
     let  inputValue = input.value;
     let res = reverseWords(inputValue);
+    
     output.innerHTML= `<h2>${res}</h2>`;
    });
 
@@ -32,8 +36,51 @@
     let reversedSentence = reversedWords.join(' '); 
     return reversedSentence; 
 }
+  
+capitalize.addEventListener("click", ()=>{
+    let  inputValue = input.value;
+    let res = capit(inputValue);
+    output.innerHTML= `<h2>${res}</h2>`;
+   });
 
+   function capit(sentence) {
+    let words = sentence.split(' ');
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    }
+    let capitalize = words.join(' ');
+    return capitalize;
+}
+rvebtn.addEventListener("click", ()=>{
+    let inputValue=input.value;
+    let res = reverseSentence(inputValue);
+    output.innerHTML =  `<h2>${res}</h2>`;
+});
 
+function reverseSentence(sentence) {
+    let words = sentence.split('');    
+    let reversedWords = words.reverse(); 
+    let reversedSentence = reversedWords.join(''); 
+    return reversedSentence; 
+}
+
+// cheackJavascript.addEventListener("click", ()=>{
+//     let inputValue = input.value;
+//     let res = findWord(inputValue);
+//     output.innerHTML = `<h2>${res}</h2>`;
+// });
+
+// function findWord(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] === "javascript") {
+//             console.log("true");
+//         }
+//         else{
+//             console.log("false");
+//         }
+//     }
+  
+// }
     </script>
 </body>
 </html>
